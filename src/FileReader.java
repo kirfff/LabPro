@@ -2,6 +2,33 @@
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
+import p4j.GatewayServer; 
+
+public static void main(String[] args){
+    EntryPoint entry = new EntryPoint();
+    
+}
+
+public class EntryPoint{
+    private FileReader fileReader; 
+
+    public readerEntryPoint(){
+        fileReader = new FileReader(); 
+
+    }
+
+    public FileReader getReader(){
+        return fileReader;
+    }
+
+    public static void main(String[] args){
+        GatewayServer gatewayServer = new GatewayServer(new readerEntryPoint());
+        gatewayServer.start();
+        System.out.println('Gateway server started'); 
+        
+    }
+}
+
 public class FileReader {
     private final int WEIGHTED_SIZE = 3; //4 Data points for weighted analysis in form: xData | yData | yError
     private final int UNWEIGHTED_SIZE = 2; //2 Data points for unweighted analysis in form xData | yData
@@ -14,6 +41,11 @@ public class FileReader {
     public FileReader(String path, boolean weighted){
         this.weighted = weighted;
         file = new File(path);
+    }
+
+    public void initReader(String path, boolean weighted){
+        this.path = path;
+        this.weighted = weighted; 
     }
 
     /**
@@ -78,7 +110,7 @@ public class FileReader {
                     }
                 }
             }
-            return true; //Add conditions pass.
+            return true; //All conditions pass.
         }
         return false; //Condition 1.
 
