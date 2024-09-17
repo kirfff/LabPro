@@ -40,13 +40,6 @@
       <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>py4j.package</groupId>
-      <artifactId>py4j</artifactId>
-      <version>0.10.9.7</version>
-      <scope>src<scope>
-      <systemPath>${project.basedir}/src/main/resources/py4j0.10.9.7.jar</systemPath>
-    </dependency>
   </dependencies>
 
   <build>
